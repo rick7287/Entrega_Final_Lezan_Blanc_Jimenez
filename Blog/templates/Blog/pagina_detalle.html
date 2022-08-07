@@ -1,0 +1,28 @@
+{% extends "AppEntrega1/padre.html" %}
+
+{% load static %}
+
+
+{% block titulo_pagina %}
+
+{{ pagina.titulo }}
+
+{% endblock %}
+
+
+
+{% block titulo %}
+
+<h1 class="mb-5">{{ pagina.titulo }} Titulo</h1>
+
+{% endblock %}
+
+
+
+{% block que_cambia %}
+
+<p>{{ pagina.cuerpo }}</p>
+
+
+
+{% endblock %}

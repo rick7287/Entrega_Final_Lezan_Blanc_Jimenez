@@ -1,0 +1,46 @@
+{% extends "AppEntrega1/padre.html" %}
+
+{% load static %}
+
+
+{% block titulo_pagina %}
+
+Crear Blog
+
+{% endblock %}
+
+
+
+{% block titulo %}
+
+<h1 class="mb-5">Crea una nueva entrada de Blog</h1>
+
+{% endblock %}
+
+
+
+{% block que_cambia %}
+
+{% if formulario.error %}
+        <p style = "color: red">Hay algo mal en el formulario</p>
+    {% endif %}
+
+    <form action="{% url 'pagina_crear' %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
+
+        {{ mensaje }}
+
+        <table>
+            {{ formulario.media }}
+            {{ formulario.as_p }}
+        </table>
+
+        <input type="submit" value="Enviar"> 
+
+
+    </form>
+
+    <br>
+
+    <a href="{% url 'pages' %}">Ver listado de entradas</a>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'AppEntrega1/padre.html' %}
+{% load static %}
+{% block titulo %}
+<h1>{{ mensaje }}</h1>
+<h2 class="mb-5">{{ user }}, TU PERFIL:</h2>
+{% endblock %}
+
+{% block que_cambia %} 
+<body>
+  
+      
+    <form action="{% url 'ver_perfil' %}" method="POST">{% csrf_token %}
+    
+        <table>
+            
+            {{ user_form.as_table }}
+            {{ perfil_form.as_table }}
+        </table>
+        
+        
+    </form>
+    <!--le dejo el  {{ mensaje }} por si me sirve en algun momento.-->
+    <a  class="btn btn-warning" href="{% url 'update_perfil' %}">EDITAR PERFIL</a> 
+    <a  class="btn btn-danger" href="{% url 'deleteUser' user %}">ELIMINAR MI USUARIO</a> 
+
+</body>
+
+{% endblock %}

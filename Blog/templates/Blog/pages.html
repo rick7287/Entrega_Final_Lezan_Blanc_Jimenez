@@ -1,0 +1,55 @@
+{% extends "AppEntrega1/padre.html" %}
+
+{% load static %}
+
+
+{% block titulo_pagina %}
+
+Pages
+
+{% endblock %}
+
+
+
+{% block titulo %}
+
+<h1 class="mb-5">Paginas</h1>
+
+{% endblock %}
+
+
+
+{% block que_cambia %}
+
+<a href="{% url 'pagina_crear' %}">Crear entrada de Blog</a>
+
+
+<br><h1>{{ mensaje }}</h1>
+
+
+{% for pagina in paginas %}
+
+    <li><a href="{% url 'pagina_detalle' pagina.id %}">{{pagina}}</a></li>
+
+    <button>
+        <a href="{% url 'pagina_borrar' pagina.id %}"> Eliminar Pagina</a> <!--Al presionar el boton, manda llamar a la url con name='borrar_profesor' y --> 
+                                                                                    <!--le manda por url una variable, la cual tiene profesor.nombre-->
+    </button>
+
+    <button>
+        <a href="{% url 'pagina_editar' pagina.id %}"> Editar Pagina</a> <!--Al presionar el boton, manda llamar a la url con name='borrar_profesor' y --> 
+                                                                                    <!--le manda por url una variable, la cual tiene profesor.nombre-->
+    </button>
+
+    
+    
+
+{% endfor %}
+
+<br>
+<br>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'AppEntrega1/padre.html' %}
+{% load static %}
+
+{% block titulo %}
+<h1 class="mb-5">REGISTRATE AQUI!</h1>
+{% endblock %}
+
+{% block que_cambia %}
+<h1>{{ mensaje }}</h1>
+<form action="{% url 'signup' %}" method="POST"> {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">REGISTRARSE</button>
+    <a  class="btn btn-warning" href="{% url 'inicio' %}">CANCELAR</a> 
+</form>
+{% endblock %}
