@@ -1,0 +1,51 @@
+{% extends "AppEntrega1/padre.html" %}
+
+{% load static %}
+
+
+{% block titulo_pagina %}
+
+Crear Mensaje
+
+{% endblock %}
+
+
+
+{% block titulo %}
+
+<h1 class="mb-5">Crea un nuevo Mensaje</h1>
+
+{% endblock %}
+
+
+
+{% block que_cambia %}
+
+{% if Formulario.errors %}
+
+    <p style="color: red;"> Faltan datos para el mensaje</p>
+
+    {% endif %}
+
+
+    <form action="{% url 'inbox' %}" method="POST" enctype="multipart/form-data">{% csrf_token %
+
+     
+        
+        <table>
+
+            {{ Formulario.as_table }}
+
+
+        </table>
+
+
+        <input type="submit", value="Enviar">
+
+    </form>
+
+    <br>
+
+    <a href="{% url 'verMensajes' %}">Ver mis mensajes</a>
+
+{% endblock %}
